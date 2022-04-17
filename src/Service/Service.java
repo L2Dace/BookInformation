@@ -35,4 +35,11 @@ public class Service {
         book.addBook(sach);
     }
     
+    public book getIDbook(int id){
+        return book.getdataIDBook(id);
+    }
+    
+    public void updateBook(book sach){
+        book.updatedataIDBook(sach);
+    }
 }

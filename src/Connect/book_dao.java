@@ -103,4 +103,42 @@ public class book_dao {
             e.printStackTrace();
         }
     }
+    
+    public book getdataIDBook(int id)
+    {
+        java.sql.Connection connection = SQLConnection.getConnection();
+        String sql = "SELECT * FROM Sach WHERE iD="+id;
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            book book = new book();
+            rs.next();
+            book.setiD(rs.getInt(1));
+            book.setTittle(rs.getString(2));
+            book.setPrice(rs.getDouble(3));
+            return book;
+        } catch(SQLException e){
+            System.out.println("Lấy dữ liệu theo id sai");
+            return null;
+        }
+    }
+    
+    public void updatedataIDBook(book book)
+    {
+        java.sql.Connection connection = SQLConnection.getConnection();
+        String sql = "UPDATE Sach set title=?,price=? WHERE iD=?";
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, book.getTittle());
+            preparedStatement.setDouble(2, book.getPrice());
+            preparedStatement.setInt(3, book.getiD());
+            preparedStatement.execute();
+            
+        } catch(SQLException e){
+            System.out.println("Cập nhật dữ liệu theo id sai");
+            System.out.println(e);
+        }
+    }
 }

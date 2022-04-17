@@ -87,8 +87,11 @@ public class BookInformation extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        addButn = new javax.swing.JButton();
+        modifyButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Book Information\n");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Filter", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
@@ -155,6 +158,20 @@ public class BookInformation extends javax.swing.JFrame {
             }
         });
 
+        addButn.setText("Add");
+        addButn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButnActionPerformed(evt);
+            }
+        });
+
+        modifyButton.setText("Modify");
+        modifyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,6 +189,10 @@ public class BookInformation extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addButn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(modifyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -190,7 +211,10 @@ public class BookInformation extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton)
+                    .addComponent(addButn)
+                    .addComponent(modifyButton))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -234,6 +258,18 @@ public class BookInformation extends javax.swing.JFrame {
         deleteButton.setEnabled(true);
     }//GEN-LAST:event_tableOfContentMouseClicked
 
+    private void addButnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButnActionPerformed
+        // TODO add your handling code here:
+        new AddBook().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_addButnActionPerformed
+
+    private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
+        // TODO add your handling code here:
+        new Modify().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_modifyButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,12 +306,14 @@ public class BookInformation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButn;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton modifyButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTable tableOfContent;
     // End of variables declaration//GEN-END:variables
